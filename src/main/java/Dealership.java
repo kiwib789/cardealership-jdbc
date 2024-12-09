@@ -1,19 +1,23 @@
 import java.util.ArrayList;
 
 public class Dealership {
+    private final int Id;
     private final String name;
     private final String address;
     private final String phone;
     private ArrayList<Vehicle> inventory; // No longer static
-    private final DealershipFileManager fileManager;
+
 
     // Constructor
-    public Dealership(String name, String address, String phone, ArrayList<Vehicle> inventory) {
+
+
+    public Dealership(int id, String name, String address, String phone) {
+        this.Id = id;
         this.name = name;
         this.address = address;
         this.phone = phone;
-        this.inventory = inventory; // Ensure inventory is initialized
-        this.fileManager = new DealershipFileManager();
+
+        this.inventory = new ArrayList<>();
     }
 
     // Get vehicles by price range
@@ -115,6 +119,5 @@ public class Dealership {
     // Add a vehicle to the inventory and save
     public void addVehicle(Vehicle vehicle) {
         inventory.add(vehicle);
-        fileManager.saveDealership(this);
     }
 }

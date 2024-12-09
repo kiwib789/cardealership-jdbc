@@ -97,8 +97,10 @@ public class UserInterface {
         System.out.print("Enter price: ");  // mileage
         double price = scanner.nextDouble();
 
+        boolean isSold = false;
+
         // Create new Vehicle
-        Vehicle newVehicle = new Vehicle(vin, year, make, model, vehicleType, color, odometer, price);
+        Vehicle newVehicle = new Vehicle(vin, year, make, model, vehicleType, color, odometer, price, isSold);
 
         // Add vehicle to dealership inventory
         dealership.addVehicle(newVehicle);

@@ -1,7 +1,4 @@
-package dao;
 
-import com.pluralsight.car.dealership.Dealership;
-import com.pluralsight.car.dealership.Vehicle;
 import config.DatabaseConfig;
 
 import java.sql.Connection;
@@ -11,7 +8,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class VehicleDaoImpl implements VehicleDao{
+public class VehicleDaoImpl implements VehicleDao {
 
     private final String url;
     private final String usr;
@@ -43,6 +40,7 @@ public class VehicleDaoImpl implements VehicleDao{
 
     private Vehicle createVehicleFromResultSet(ResultSet resultSet) {
 
+        return null;
     }
 
     @Override
@@ -73,5 +71,15 @@ public class VehicleDaoImpl implements VehicleDao{
     @Override
     public List<Vehicle> findVehicleByType(String type) {
         return List.of();
+    }
+
+    @Override
+    public void removeVehicle(int vin) {
+
+    }
+
+    @Override
+    public void addVehicle(Vehicle vehicle) {
+
     }
 }

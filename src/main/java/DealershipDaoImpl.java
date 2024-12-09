@@ -1,6 +1,3 @@
-package dao;
-
-import com.pluralsight.car.dealership.Dealership;
 import config.DatabaseConfig;
 
 import java.sql.Connection;
@@ -10,14 +7,14 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class DealershipDaoImpl implements DealershipDao{
+public class DealershipDaoImpl implements DealershipDao {
     private final String url;
     private final String user;
     private final String password;
 
-    public DealershipDaoImpl(String url, String usr, String password) {
+    public DealershipDaoImpl(String url, String user, String password) {
         this.url = url;
-        this.user = usr;
+        this.user = user;
         this.password = password;
     }
 
@@ -25,19 +22,24 @@ public class DealershipDaoImpl implements DealershipDao{
     public List<Dealership> findAllDealerships() {
         List<Dealership> dealerships = new ArrayList<>();
         String query = "SELECT * FROM Dealerships";
+        int id;
+        String name;
+        String address;
+        String phone;
 
-        try (Connection connection = DatabaseConfig.getConnection(url, user,password);
+        try (Connection connection = DatabaseConfig.getConnection(url, user, password);
              PreparedStatement preparedStatement = connection.prepareStatement(query);
              ResultSet resultSet = preparedStatement.executeQuery()) {
 
             while (resultSet.next()) {
-                Dealership dealership = new Dealership(
-                        resultSet.getString("Name"),
-                        resultSet.getString("Address"),
-                        resultSet.getString("Phone number"),
-                        resultSet.ge
-                );
-                dealerships.add(dealership);
+                id = resultSet.getInt("Id");
+                name = resultSet.getString("Name");
+                address = resultSet.getString("Address");
+                phone = resultSet.getString("Phone number");
+                Dealership dealership = new Dealership(id, name, address,phone);
+
+
+                        dealerships.add(dealership);
 
 
             }
@@ -46,5 +48,10 @@ public class DealershipDaoImpl implements DealershipDao{
         }
         return dealerships;
     }
+
+    @Override
+    public List<Dealership> findDealershipById() {
+        return List.of();
     }
 }
+

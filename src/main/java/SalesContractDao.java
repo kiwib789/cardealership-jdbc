@@ -1,6 +1,4 @@
-package dao;
 
-import com.pluralsight.car.dealership.SalesContract;
 
 import java.util.List;
 

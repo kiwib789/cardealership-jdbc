@@ -1,8 +1,4 @@
-package dao;
 
-
-import com.pluralsight.car.dealership.Dealership;
-import com.pluralsight.car.dealership.Vehicle;
 
 import java.util.List;
 
@@ -14,4 +10,6 @@ public interface VehicleDao {
     List<Vehicle> findVehicleByColor(String color);
     List<Vehicle> findVehicleByMileage(int mileage);
     List<Vehicle> findVehicleByType(String type);
+    void addVehicle(Vehicle vehicle);
+    void removeVehicle(int vin);
 }
