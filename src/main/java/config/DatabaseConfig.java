@@ -21,4 +21,6 @@ public class DatabaseConfig {
     public static Connection getConnection(String url, String userName, String password) throws SQLException {
         return getDataSource(url, userName, password).getConnection();
     }
+
+
 }

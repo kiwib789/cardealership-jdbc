@@ -10,17 +10,41 @@ public class SalesContractImpl implements SalesContractDao {
 
     @Override
     public List<SalesContract> findAllSalesContracts() {
+        List<SalesContract> salesContracts = new ArrayList<>();
 
-        return List.of();
+        try (Connection connection = DatabaseConfig.getConnection();
+             PreparedStatement statement = connection.prepareStatement();
+             ResultSet resultSet = statement.executeQuery()) {
+
+            while (resultSet.next()) {
+                int id = resultSet.getInt("id");
+                String field1 = resultSet.getString("field1");
+                String field2 = resultSet.getString("field2");
+
+                SalesContract salesContract = new SalesContract(id, field1, field2);
+                salesContracts.add(salesContract);
+            }
+
+        } catch (SQLException e) {
+            e.printStackTrace(); // Add proper logging here
+        }
+     return salesContracts;
     }
 
 
     @Override
     public SalesContract findSalesContractById(int id) {
+        SalesContract salesContract = null;
 
-        return null;
-    }
+        try (Connection connection = DatabaseConfig.getConnection();
+             PreparedStatement statement = connection.prepareStatement()) {
 
+            statement.setInt(1, id);
+            try (ResultSet resultSet = statement.executeQuery()) {
+                if (resultSet.next()) {
+                }
+            }
+        }    }
 
 
     @Override
@@ -37,4 +61,5 @@ public class SalesContractImpl implements SalesContractDao {
     public void deleteSalesContract(int id) {
 
     }
+}
 
