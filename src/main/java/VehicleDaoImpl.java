@@ -8,6 +8,8 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
+import static config.DatabaseConfig.dataSource;
+
 public class VehicleDaoImpl implements VehicleDao {
 
     private final String url;
@@ -45,7 +47,43 @@ public class VehicleDaoImpl implements VehicleDao {
 
     @Override
     public List<Vehicle> findVehicleByMakeModel(String make, String model) {
-        return List.of();
+        return List.of(); ArrayList<Vehicle> vehicleByMake = new ArrayList<>();
+        int vin;
+        int year;
+        String model;
+        String make;
+        String vehicleType;
+        String color;
+        int odometer;
+        double price;
+        boolean sold;
+
+        try (Connection connection = dataSource.getConnection()){
+            PreparedStatement statement = connection.prepareStatement("""
+                    SELECT * FROM vehicles WHERE make = ?;
+                    """);
+
+            statement.setString(1, make);
+            ResultSet results = statement.executeQuery();
+
+            while (results.next()){
+                vin = results.getInt("vin");
+                year = results.getInt("year");
+                make = results.getString("make");
+                model = results.getString("model");
+                vehicleType = results.getString("type");
+                color = results.getString("color");
+                odometer = results.getInt("odometer");
+                price = results.getDouble("price");
+                sold = results.getBoolean("sold");
+
+                Vehicle v = new Vehicle(vin, year, make, model, vehicleType, color, odometer, price, sold);
+                vehicleByMake.add(v);
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+        return vehicleByMake;
     }
 
     @Override
