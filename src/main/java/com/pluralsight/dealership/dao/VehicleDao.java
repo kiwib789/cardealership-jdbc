@@ -1,4 +1,6 @@
+package com.pluralsight.dealership.dao;
 
+import com.pluralsight.dealership.Vehicle;
 
 import java.util.List;
 

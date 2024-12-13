@@ -1,9 +1,15 @@
+package com.pluralsight.dealership;
+
 import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.io.IOException;
 
-public class ContractDataManager {
+public class ContractDataManager extends Contract{
     private final String contractsFilePath = "src/main/resources/contracts.csv"; // File path to store contracts
+
+    public ContractDataManager(String date, String customerName, String customerEmail, Vehicle vehicleSold) {
+        super(date, customerName, customerEmail, vehicleSold);
+    }
 
     public void saveContract(Contract contract) throws IOException {
         // BufferedWriter
@@ -19,7 +25,7 @@ public class ContractDataManager {
                         salesContract.getVehicleSold().getYear(),
                         salesContract.getVehicleSold().getMake(),
                         salesContract.getVehicleSold().getModel(),
-                        salesContract.getVehicleSold().getVehicleType(),
+                        salesContract.getVehicleSold().getType(),
                         salesContract.getVehicleSold().getColor(),
                         salesContract.getTotalPrice(),
                         salesContract.getMonthlyPayment(),
@@ -32,8 +38,8 @@ public class ContractDataManager {
                 // Writes data to the file
                 writer.write(data);
                 writer.newLine();
-            } else if (contract instanceof LeaseContract) {
-                LeaseContract leaseContract = (LeaseContract) contract; // Cast to LeaseContract
+            } else if (contract instanceof Contract) {
+                Contract leaseContract = (Contract) contract; // Cast to LeaseContract
 
 
                 // Format
@@ -45,7 +51,7 @@ public class ContractDataManager {
                         leaseContract.getVehicleSold().getYear(),
                         leaseContract.getVehicleSold().getMake(),
                         leaseContract.getVehicleSold().getModel(),
-                        leaseContract.getVehicleSold().getVehicleType(),
+                        leaseContract.getVehicleSold().getType(),
                         leaseContract.getVehicleSold().getColor(),
                         leaseContract.getTotalPrice(),
                         leaseContract.getMonthlyPayment());

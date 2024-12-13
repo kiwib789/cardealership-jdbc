@@ -1,3 +1,5 @@
+package com.pluralsight.dealership;
+
 import java.util.List;
 import java.util.Scanner;
 
@@ -100,7 +102,7 @@ public class UserInterface {
         boolean isSold = false;
 
         // Create new Vehicle
-        Vehicle newVehicle = new Vehicle(vin, year, make, model, vehicleType, color, odometer, price, isSold);
+        Vehicle newVehicle = new Vehicle(vin, year, make, model, vehicleType, color, odometer, price);
 
         // Add vehicle to dealership inventory
         dealership.addVehicle(newVehicle);

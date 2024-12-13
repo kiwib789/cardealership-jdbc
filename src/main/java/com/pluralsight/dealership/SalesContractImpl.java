@@ -1,6 +1,7 @@
+package com.pluralsight.dealership;
 
-
-import config.DatabaseConfig;
+import com.pluralsight.dealership.config.DatabaseConfig;
+import com.pluralsight.dealership.dao.SalesContractDao;
 
 import java.sql.*;
 import java.util.ArrayList;
@@ -44,7 +45,11 @@ public class SalesContractImpl implements SalesContractDao {
                 if (resultSet.next()) {
                 }
             }
-        }    }
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+        return salesContract;
+    }
 
 
     @Override

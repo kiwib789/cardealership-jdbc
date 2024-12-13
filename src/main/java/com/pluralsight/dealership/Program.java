@@ -1,3 +1,5 @@
+package com.pluralsight.dealership;
+
 import java.io.IOException;
 
 public class Program {

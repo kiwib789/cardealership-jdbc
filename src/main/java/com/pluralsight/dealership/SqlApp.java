@@ -1,3 +1,5 @@
+package com.pluralsight.dealership;
+
 import java.sql.*;
 import java.util.Scanner;
 

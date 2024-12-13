@@ -1,4 +1,4 @@
-package config;
+package com.pluralsight.dealership.config;
 
 import org.apache.commons.dbcp2.BasicDataSource;
 
@@ -6,7 +6,7 @@ import java.sql.Connection;
 import java.sql.SQLException;
 
 public class DatabaseConfig {
-    private static BasicDataSource dataSource;
+    public static BasicDataSource dataSource;
 
     public static BasicDataSource getDataSource(String url, String userName, String password) {
         if (dataSource == null){

@@ -1,3 +1,5 @@
+package com.pluralsight.dealership;
+
 import java.io.*;
 import java.util.ArrayList;
 
@@ -42,7 +44,7 @@ public class DealershipFileManager {
                         String.valueOf(vehicle.getYear()),
                         vehicle.getMake(),
                         vehicle.getModel(),
-                        vehicle.getVehicleType(),
+                        vehicle.getType(),
                         vehicle.getColor(),
                         String.valueOf(vehicle.getOdometer()),
                         String.valueOf(vehicle.getPrice()));

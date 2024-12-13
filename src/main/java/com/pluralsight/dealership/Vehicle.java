@@ -1,27 +1,26 @@
+package com.pluralsight.dealership;
+
 public class Vehicle {
     private int vin;
     private int year;
     private String make;
     private String model;
-    private String vehicleType;
+    private String type;
     private String color;
     private int odometer;
     private double price;
-    private boolean isSold;
 
-    public Vehicle(int vin, int year, String make, String model, String vehicleType, String color, int odometer, double price, boolean isSold) {
+
+    public Vehicle(int vin, int year, String make, String model, String type, String color, int odometer, double price) {
         this.vin = vin;
         this.year = year;
         this.make = make;
         this.model = model;
-        this.vehicleType = vehicleType;
+        this.type = type;
         this.color = color;
         this.odometer = odometer;
         this.price = price;
-        this.isSold = isSold;
     }
-
-
 
     public int getVin() {
         return vin;
@@ -39,9 +38,10 @@ public class Vehicle {
         return model;
     }
 
-    public String getVehicleType() {
-        return vehicleType;
+    public String getType(){
+        return type;
     }
+
 
     public String getColor() {
         return color;
@@ -61,6 +61,6 @@ public class Vehicle {
     public String toString() {
 
         return String.format("Vehicle{vin: %-10s, year: %-4d, make: %-10s, model: %-10s, vehicleType: %-10s, color: %-10s, odometer: %-10.2f, price: $%.2f}",
-                vin, year, make, model, vehicleType, color, odometer, price);
+                vin, year, make, model, color, odometer, price);
     }
 }

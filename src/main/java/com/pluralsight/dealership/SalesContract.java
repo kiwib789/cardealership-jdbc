@@ -1,4 +1,6 @@
-public class SalesContract extends Contract {
+package com.pluralsight.dealership;
+
+public class SalesContract extends Contract{
     private static final double SalesTaxRate = 0.05;
     private static final double RecordingFee = 100;
     private static final double ProcessingFeeUnder50000 = 295;
@@ -12,7 +14,7 @@ public class SalesContract extends Contract {
 
     // Constructor
     public SalesContract(String date, String customerName, String customerEmail, Vehicle vehicleSold, String financingOption) {
-        super(date, customerName, customerEmail, vehicleSold);
+        super(date,customerName,customerEmail,vehicleSold);
         this.financingOption = financingOption;
         this.salesTaxAmount = calculateSalesTax();
         this.processingFee = calculateProcessingFee();
@@ -82,5 +84,22 @@ public class SalesContract extends Contract {
     @Override
     public double getMonthlyPayment() {
         return monthlyPayment;
+    }
+
+    @Override
+    public String toString() {
+        return "SalesContract{" +
+                "financingOption='" + financingOption + '\'' +
+                ", salesTaxAmount=" + salesTaxAmount +
+                ", processingFee=" + processingFee +
+                ", totalPrice=" + totalPrice +
+                ", monthlyPayment=" + monthlyPayment +
+                ", date='" + date + '\'' +
+                ", customerName='" + customerName + '\'' +
+                ", customerEmail='" + customerEmail + '\'' +
+                ", vehicleSold=" + vehicleSold +
+                ", totalPrice=" + totalPrice +
+                ", monthlyPayment=" + monthlyPayment +
+                '}';
     }
 }

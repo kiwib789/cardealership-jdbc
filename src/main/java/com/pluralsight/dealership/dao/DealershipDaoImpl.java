@@ -1,4 +1,7 @@
-import config.DatabaseConfig;
+package com.pluralsight.dealership.dao;
+
+import com.pluralsight.dealership.config.DatabaseConfig;
+import com.pluralsight.dealership.Dealership;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;

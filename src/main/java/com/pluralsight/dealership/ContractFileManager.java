@@ -1,6 +1,9 @@
+package com.pluralsight.dealership;
+
 import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.io.IOException;
+
 
 public class ContractFileManager {
     private final String contractFilePath = "src/main/resources/contracts.csv";
@@ -16,11 +19,11 @@ public class ContractFileManager {
                         salesContract.getDateOfContract(),
                         salesContract.getCustomerName(),
                         salesContract.getCustomerEmail(),
-                        salesContract.getVehicle().getVin(),
+                        salesContract.getVehicleSold().getVin(),
                         salesContract.getVehicleSold().getYear(),
                         salesContract.getVehicleSold().getMake(),
                         salesContract.getVehicleSold().getModel(),
-                        salesContract.getVehicleSold().getVehicleType(),
+                        salesContract.getVehicleSold().getType(),
                         salesContract.getVehicleSold().getColor(),
                         salesContract.getTotalPrice(),
                         salesContract.getMonthlyPayment(),
@@ -45,7 +48,7 @@ public class ContractFileManager {
                         leaseContract.getVehicleSold().getYear(),
                         leaseContract.getVehicleSold().getMake(),
                         leaseContract.getVehicleSold().getModel(),
-                        leaseContract.getVehicleSold().getVehicleType(),
+                        leaseContract.getVehicleSold().getType(),
                         leaseContract.getVehicleSold().getColor(),
                         leaseContract.getTotalPrice(),
                         leaseContract.getMonthlyPayment());

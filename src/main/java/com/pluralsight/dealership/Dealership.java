@@ -1,3 +1,5 @@
+package com.pluralsight.dealership;
+
 import java.util.ArrayList;
 
 public class Dealership {
@@ -96,7 +98,7 @@ public class Dealership {
     public void getVehiclesByType(String type) {
         boolean found = false;
         for (Vehicle v : inventory) {
-            if (v.getVehicleType().equalsIgnoreCase(type)) {
+            if (v.getType().equalsIgnoreCase(type)) {
                 System.out.println(v);
                 found = true;
             }
