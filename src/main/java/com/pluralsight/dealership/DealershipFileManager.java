@@ -28,7 +28,7 @@ public class DealershipFileManager {
                     vehicles.add(vehicle);
                 }
             }
-            dealership = new Dealership("Dealership Name", "Address", "Phone", vehicles);
+            dealership = new Dealership(1, "Dealership name: ", "Adress: ", "Phone number: ");
         } catch (IOException e) {
             e.printStackTrace();
         }
